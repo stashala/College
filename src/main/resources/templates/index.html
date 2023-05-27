@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
+</head>
+<body>
+    <h1>Menu</h1>
+    <ul>
+        <li><a th:href="@{/students}" href="#">
+            1. Names of students, team name and project theme
+        </a></li>
+        <li><a th:href="@{/students/teams}" href="#">
+            2. Names of students, team name ("BRAK" for unassigned)
+        </a></li>
+        <li><a th:href="@{/projects}" href="#">
+            3. Project themes assigned to professors
+        </a></li>
+        <li><a th:href="@{/students/average}" href="#">
+            4. First names, last names and average annual of students (average > average of all)
+        </a></li>
+    </ul>
+</body>
+</html>

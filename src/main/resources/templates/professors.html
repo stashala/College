@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Professors</title>
+    <link rel="stylesheet" href="../static/style.css" th:href="@{/style.css}">
+</head>
+<body>
+    <h1>Professors</h1>
+    <ul>
+        <li><a th:href="@{/}" href="#">
+            Return to main menu
+        </a></li>
+    </ul>
+<table>
+    <thead>
+        <tr>
+            <th>Last name</th>
+            <th>First name</th>
+            <th>Theme</th>
+        </tr>
+    </thead>
+    <tbody th:remove="all-but-first">
+        <tr th:each="professor, status : ${professors}" th:object="${professor}"
+            th:class="${status.odd? 'odd-row':''}"
+            class="odd-row">
+            <td th:text="*{lastName}">Emily</td>
+            <td th:text="*{firstName}">Brown</td>
+            <td th:text="*{theme}">Environment</td>
+        </tr>
+        <tr>
+            <td>Brown</td>
+            <td>Mia</td>
+            <td>Music</td>
+        </tr>
+        <tr class="odd-row">
+            <td>Brown</td>
+            <td>Ava</td>
+            <td>Technology</td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

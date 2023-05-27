@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Students above average</title>
+    <link rel="stylesheet" href="../static/style.css" th:href="@{/style.css}">
+</head>
+<body>
+    <h1>Students above average</h1>
+    <p th:text="|Annual average for all students: ${averageAnnualAverage}|">Annual average for all students: 21.41</p>
+    <ul>
+        <li><a th:href="@{/}" href="#">
+            Return to main menu
+        </a></li>
+    </ul>
+<table>
+    <thead>
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Average annual</th>
+        </tr>
+    </thead>
+    <tbody th:remove="all-but-first">
+        <tr th:each="student, status : ${studentsWithHigherAverage}"
+            th:object="${student}"
+            th:class="${status.odd? 'odd-row':''}"
+            class="odd-row">
+            <td th:text="*{firstName}">Ethan</td>
+            <td th:text="*{lastName}">Anderson</td>
+            <td th:text="*{annualAverage}">21.51</td>
+        </tr>
+        <tr>
+            <td>Emily</td>
+            <td>Wilson</td>
+            <td>12.12</td>
+        </tr>
+        <tr class="odd-row">
+            <td>Ava</td>
+            <td>Thompson</td>
+            <td>51</td>
+        </tr>
+        </tbody>
+</table>
+</body>
+</html>
